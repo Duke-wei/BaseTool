@@ -10,6 +10,13 @@
 #include<iostream>
 #include<string>
 #include<vector>
+#include <list>
+#include<cstdio>
+#include<cstdlib>
+#include <cstring>
+#include <dirent.h>
+#include <unistd.h>
+#include <sys/stat.h>
 
 namespace basetool{
 	class FileTool{
@@ -19,6 +26,12 @@ namespace basetool{
 			static std::vector<std::string> getFiles(const std::string& folder, const bool all=true);
 
 			static bool mkdir(const std::string folder);
+
+			static bool mkfile(const std::string filename);
+
+			static bool rmfile(const std::string filename);
+
+			static bool rmdir(const std::string folder,const bool andsubfolder=true);
 
 		private:
 			static std::size_t get_last_slash(const std::string& path);

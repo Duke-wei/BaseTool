@@ -6,11 +6,6 @@
  ************************************************************************/
 
 #include "filetool.h"
-#include <dirent.h>
-#include <unistd.h>
-#include <sys/stat.h>
-#include <cstring>
-#include <list>
 #define PATH_DELIMITER '/'
 namespace basetool{
 	std::string FileTool::getFileName(const std::string& path,const bool postfix/*=false*/){
@@ -98,6 +93,41 @@ namespace basetool{
 			}
 		}
 		return true;
+	}
+
+	bool FileTool::mkfile(const std::string filename){
+		FILE *fp;
+		fp = ::fopen(filename.c_str(),"w");
+		if(fp==NULL) return false;
+		::fclose(fp);
+		return true;
+	}
+
+	bool FileTool::rmfile(const std::string filename){
+		if(::remove(filename.c_str())==0) return true;
+		return false;
+	}
+
+	//***LMTW learn more to write this function!!!
+	bool FileTool::rmdir(const std::string folder,const bool andsubfolder=true){
+		std::vector<std::string> subfile = FileTool::getFiles(folder.c_str());
+		for(auto file=subfile.begin();file!=subfile.end();++file){
+			struct stat st;
+			if(!((*file)==".")||!((*file)=="..")){
+				//must ignore .& ..
+				continue;
+			}
+			lstat((*file).c_str(),&st);
+			if(S_ISDIR(st.st_mode)){
+				//it's a subfolder
+				FileTool::rmdir(file);
+			}else{
+				//it's a file
+				FileTool::rmfile(file);
+			}
+		}
+		if(::rmdir(folder.c_str())==0) return true;
+		return false;
 	}
 
 	std::size_t FileTool::get_last_slash(const std::string& path){
