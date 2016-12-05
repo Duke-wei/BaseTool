@@ -7,6 +7,8 @@
 
 #include<stringtool.h>
 
+namespace basttool{
+
 std::vector<std::string> StringTool::splitstring(const std::string& str,const char delimiter=' '){
 	std::vector<std::string> splited;
 	std::string s(str);
@@ -22,4 +24,13 @@ std::vector<std::string> StringTool::splitstring(const std::string& str,const ch
 	return splited;
 }
 
+std::string StringTool::chartostring(char *src) const {
+	return std::string(src);
+}
 
+const char* StringTool::stringtochar(std::string src) const {
+	return src.c_str();
+}
+
+
+}

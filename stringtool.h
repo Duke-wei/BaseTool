@@ -15,6 +15,8 @@ namespace basetool{
 	class StringTool{
 		public:
 			static std::vector<std::string> splitstring(const std::string& str,const char delimiter=' ');
+			static std::string chartostring(char *src) const;
+			static const char* stringtochar(std::string src) const;
 
 	};
 }
