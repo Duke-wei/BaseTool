@@ -19,6 +19,7 @@
 #include <sys/stat.h>
 
 namespace basetool{
+
 	class FileTool{
 		public:
 			static std::string getFileName(const std::string& path, const bool postfix=false);

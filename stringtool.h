@@ -19,6 +19,8 @@ namespace basetool{
 			static std::string chartostring(char *src) const;
 			static const char* stringtochar(std::string src) const;
 			static int stringKMP(std::string src,std::string part);
+			static bool isomorphic(std::string src,std::string src2);
+			static bool ispalindromic(std::string src);
 	};
 }
 
