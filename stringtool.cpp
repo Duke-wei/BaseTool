@@ -68,5 +68,24 @@ int StringTool::stringKMP(std::string src,std::string part){
 	}
 	return -1;
 }
+bool StringTool::isomorphic(std::string src,std::string src2){
+	char map_s[128] = { 0 };
+	char map_t[128] = { 0 };
+	int len = src.size();
+	for(int i=0;i<len;++i){
+		if(map_s[src[i]] != map_t[src2[i]]) return false;
+		map_s[src[i]] = i+1;
+		map_t[src2[i]] = i+1;
+	}
+	return true;
+}
+bool StringTool::ispalindromic(std::string src){
+	int len = src.size();
+	if(len==0) return true;
+	for(int i=0,j=len-1;i<j;++i,--j){
+		if(src[i]!=src[j]) return false;
+	}
+	return true;
+}
 
 }
