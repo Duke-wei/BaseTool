@@ -26,7 +26,7 @@ namespace basetool{
 				return path.substr(last_slash+1,last_dot - last_slash -1);
 			}
 		}
-		return "";
+		return std::string("");
 	}
 
 	std::vector<std::string> FileTool::getFiles(const std::string& folder,const bool all/*=true*/){
