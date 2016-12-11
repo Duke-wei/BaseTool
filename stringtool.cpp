@@ -5,7 +5,8 @@
     > Created Time: 2016年12月05日 星期一 13时39分55秒
  ************************************************************************/
 
-#include<stringtool.h>
+//#include<stringtool.h>
+#include "stringtool.h"
 
 namespace basttool{
 
