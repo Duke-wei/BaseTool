@@ -10,8 +10,8 @@
 namespace basetool{
 	std::string FileTool::getFileName(const std::string& path,const bool postfix/*=false*/){
 		if(!path.empty()){
-			size_t last_slash = FileTool::get_last_slash(path);
-			size_t last_dot = path.find_last_of('.');
+			std::size_t last_slash = FileTool::get_last_slash(path);
+			std::size_t last_dot = path.find_last_of('.');
 			if(last_dot<last_slash || last_dot==std::string::npos){
 				//not found the right dot of the postfix,
 				//return the file name diretcly
