@@ -25,11 +25,11 @@ std::vector<std::string> StringTool::splitstring(const std::string& str,const ch
 	return splited;
 }
 
-std::string StringTool::chartostring(char *src) const {
+std::string StringTool::chartostring(char *src){
 	return std::string(src);
 }
 
-const char* StringTool::stringtochar(std::string src) const {
+const char* StringTool::stringtochar(std::string src){
 	return src.c_str();
 }
 
